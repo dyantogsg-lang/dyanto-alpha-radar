@@ -1,0 +1,12 @@
+{
+  "preferred_chain": "solana",
+  "min_liquidity_usd": 1000,
+  "labels": {
+    "HOT": {"min_opportunity": 82, "max_risk": 72},
+    "WARM+": {"min_opportunity": 68, "max_risk": 72},
+    "WARM": {"min_opportunity": 52, "max_risk": 72},
+    "RISKY": {"min_risk": 72},
+    "AVOID": {"min_risk": 85}
+  },
+  "dry_run_only": true
+}

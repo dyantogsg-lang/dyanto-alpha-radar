@@ -1,0 +1,31 @@
+[project]
+name = "dyanto-alpha-radar"
+version = "0.1.0"
+description = "Autonomous crypto market intelligence agent for Solana memecoins and DEX opportunities."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Dyanto GSG"}]
+dependencies = [
+  "httpx>=0.27.0",
+  "pydantic>=2.7.0",
+  "typer>=0.12.0",
+  "rich>=13.7.0",
+  "fastapi>=0.111.0",
+  "uvicorn>=0.30.0",
+  "jinja2>=3.1.0"
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.2.0", "ruff>=0.5.0"]
+
+[project.scripts]
+dyanto-alpha-radar = "dyanto_alpha_radar.cli:app"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]

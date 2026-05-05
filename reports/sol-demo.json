@@ -1,0 +1,53 @@
+{
+  "identity": {
+    "name": "Wrapped SOL",
+    "symbol": "SOL",
+    "chain": "solana",
+    "address": "So11111111111111111111111111111111111111112"
+  },
+  "primary_pair": {
+    "dex": "orca",
+    "pair_address": "Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+    "url": "https://dexscreener.com/solana/czfq3xzzdmsdgduyrnltrhgc47cxcztlg4crryfu44ze",
+    "created_at": 1688106058000
+  },
+  "market": {
+    "price_usd": 84.8,
+    "liquidity_usd": 30344701.02,
+    "volume_24h": 107666078.47,
+    "volume_1h": 1115111.97,
+    "fdv": 0.0,
+    "txns_24h_buys": 16969,
+    "txns_24h_sells": 15912,
+    "price_change_1h": -0.18,
+    "price_change_24h": 0.08
+  },
+  "score": {
+    "opportunity_score": 58.3,
+    "risk_score": 25.0,
+    "label": "WARM",
+    "vol_liq": 3.55,
+    "vol_fdv": 0,
+    "buy_ratio": 0.516,
+    "subscores": {
+      "liquidity": 100,
+      "volume": 29.6,
+      "breadth": 100,
+      "buy_pressure": 50.4,
+      "momentum": 34.7,
+      "valuation_turnover": 0
+    },
+    "flags": [
+      "No critical market-structure flag detected"
+    ]
+  },
+  "verdict": "Mixed",
+  "narrative": [
+    "Website: https://solana.com",
+    "twitter: https://x.com/solana"
+  ],
+  "actions": [
+    "Keep on monitor list; wait for stronger liquidity, breadth, or narrative confirmation"
+  ],
+  "pair_count": 30
+}
