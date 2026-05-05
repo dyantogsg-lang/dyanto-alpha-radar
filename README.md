@@ -45,19 +45,19 @@ pip install -e '.[dev]'
 ## CLI usage
 
 ```bash
-dyanto-alpha-radar scan So11111111111111111111111111111111111111112
+dyanto-alpha-radar So11111111111111111111111111111111111111112
 ```
 
 Save report:
 
 ```bash
-dyanto-alpha-radar scan <TOKEN_OR_QUERY> -o reports/example.md
+dyanto-alpha-radar <TOKEN_OR_QUERY> -o reports/example.md
 ```
 
 JSON output:
 
 ```bash
-dyanto-alpha-radar scan <TOKEN_OR_QUERY> --json
+dyanto-alpha-radar <TOKEN_OR_QUERY> --json
 ```
 
 ## API / dashboard
