@@ -1,2 +1,0 @@
-[console_scripts]
-dyanto-alpha-radar = dyanto_alpha_radar.cli:app
