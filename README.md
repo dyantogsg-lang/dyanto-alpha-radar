@@ -26,6 +26,7 @@ It is not a simple chatbot. It is an agent workflow:
 - Solana-first pair selection
 - Market quality scoring
 - Risk flags
+- GMGN-inspired detail panels: security, pool profile, timeframe tape, smart-money placeholders, holder snapshot checklist
 - Narrative/social metadata extraction
 - Markdown report renderer
 - Typer CLI

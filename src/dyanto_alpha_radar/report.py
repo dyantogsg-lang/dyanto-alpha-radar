@@ -20,7 +20,12 @@ def render_markdown_report(analysis: dict) -> str:
     pair = analysis.get("primary_pair") or {}
     market = analysis.get("market") or {}
     score = analysis.get("score") or {}
-    flags = score.get("flags") or []
+    details = analysis.get("details") or {}
+    security = details.get("security") or {}
+    pool = details.get("pool") or {}
+    smart_money = details.get("smart_money") or {}
+    holder_snapshot = details.get("holder_snapshot") or {}
+    flags = security.get("flags") or score.get("flags") or []
     narrative = analysis.get("narrative") or []
     actions = analysis.get("actions") or []
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
@@ -51,6 +56,14 @@ def render_markdown_report(analysis: dict) -> str:
         f"- Risk: {score.get('risk_score', 0)}/100",
         f"- Volume/Liquidity: {score.get('vol_liq', 0)}x",
         f"- Buy ratio: {score.get('buy_ratio', 0)}",
+        "",
+        "## GMGN-style detail panels",
+        f"- Pool age: {pool.get('pair_age', 'unknown')}",
+        f"- Active pools: {pool.get('active_pool_count', 0)}",
+        f"- Liquidity status: {security.get('liquidity_status', 'unknown')}",
+        f"- Sell pressure: {security.get('sell_pressure', 'unknown')}",
+        f"- Smart money signal: {smart_money.get('signal', 'pending')}",
+        f"- Holder concentration: {holder_snapshot.get('concentration_risk', 'unresolved')}",
         "",
         "## Why it moved / narrative",
     ]

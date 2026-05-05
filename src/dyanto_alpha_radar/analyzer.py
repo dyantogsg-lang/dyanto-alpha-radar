@@ -3,6 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 from dyanto_alpha_radar.adapters.dexscreener import fetch_token_pairs, search_pairs
+from dyanto_alpha_radar.enrichment import build_gmgn_style_details
 from dyanto_alpha_radar.scoring import classify_verdict, score_market
 
 
@@ -84,6 +85,8 @@ async def analyze(target: str, config: RadarConfig | None = None) -> dict:
         }
     )
 
+    details = build_gmgn_style_details(primary, score, pair_count=len(pairs), social_score=social_score)
+
     return {
         "identity": {
             "name": primary.get("name"),
@@ -101,14 +104,21 @@ async def analyze(target: str, config: RadarConfig | None = None) -> dict:
             "price_usd": primary.get("price_usd"),
             "liquidity_usd": primary.get("liquidity_usd"),
             "volume_24h": primary.get("volume_24h"),
+            "volume_6h": primary.get("volume_6h"),
             "volume_1h": primary.get("volume_1h"),
+            "volume_5m": primary.get("volume_5m"),
             "fdv": primary.get("fdv"),
             "txns_24h_buys": primary.get("txns_24h_buys"),
             "txns_24h_sells": primary.get("txns_24h_sells"),
+            "txns_1h_buys": primary.get("txns_1h_buys"),
+            "txns_1h_sells": primary.get("txns_1h_sells"),
+            "price_change_5m": primary.get("price_change_5m"),
             "price_change_1h": primary.get("price_change_1h"),
+            "price_change_6h": primary.get("price_change_6h"),
             "price_change_24h": primary.get("price_change_24h"),
         },
         "score": score,
+        "details": details,
         "verdict": verdict,
         "narrative": narrative,
         "actions": action_ideas(score, primary),

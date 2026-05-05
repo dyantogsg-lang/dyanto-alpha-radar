@@ -1,6 +1,6 @@
 # Dyanto AlphaRadar Report — SOL
 
-Generated: 2026-05-05 08:53 UTC
+Generated: 2026-05-05 09:30 UTC
 
 ## What it is
 - Name: Wrapped SOL (SOL)
@@ -10,19 +10,27 @@ Generated: 2026-05-05 08:53 UTC
 - URL: https://dexscreener.com/solana/czfq3xzzdmsdgduyrnltrhgc47cxcztlg4crryfu44ze
 
 ## Live structure
-- Price: $84.80
-- Liquidity: $30.34M
-- 24h Volume: $107.67M
+- Price: $84.53
+- Liquidity: $30.29M
+- 24h Volume: $107.25M
 - FDV/Market Cap: $0.0000
-- 24h Buys/Sells: 16969 / 15912
-- Price change 1h/24h: -0.18% / 0.08%
+- 24h Buys/Sells: 16922 / 15901
+- Price change 1h/24h: -0.24% / -0.32%
 
 ## Score
 - Label: WARM
-- Opportunity: 58.3/100
+- Opportunity: 58.2/100
 - Risk: 25.0/100
-- Volume/Liquidity: 3.55x
+- Volume/Liquidity: 3.54x
 - Buy ratio: 0.516
+
+## GMGN-style detail panels
+- Pool age: 1040.1d
+- Active pools: 30
+- Liquidity status: deep
+- Sell pressure: balanced
+- Smart money signal: watch
+- Holder concentration: unresolved
 
 ## Why it moved / narrative
 - Website: https://solana.com
@@ -32,7 +40,7 @@ Generated: 2026-05-05 08:53 UTC
 Mixed
 
 ## Risk flags
-- No critical market-structure flag detected
+- Multiple pools detected; verify real pool versus dust pools
 
 ## Suggested actions
 - Keep on monitor list; wait for stronger liquidity, breadth, or narrative confirmation

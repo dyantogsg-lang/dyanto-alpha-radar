@@ -125,6 +125,13 @@ def home() -> str:
     .section-card { border:1px solid var(--line); border-radius:24px; padding:20px; background:#fff; }
     .section-card h3 { margin:0 0 12px; font-size:16px; color:#0f2d5c; }
     .section-card ul { margin:0; padding-left:18px; color:#40516b; line-height:1.6; }
+    .gmgn-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:20px 0; }
+    .gmgn-card { border:1px solid rgba(0,82,255,.12); border-radius:22px; padding:16px; background:linear-gradient(180deg,#ffffff,#f7faff); }
+    .gmgn-card span { display:block; color:var(--muted); font-size:11px; font-weight:900; letter-spacing:.11em; text-transform:uppercase; }
+    .gmgn-card b { display:block; margin-top:8px; color:#08265f; font-size:18px; letter-spacing:-.03em; }
+    .timeframe-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+    .tf { border:1px solid var(--line); border-radius:18px; padding:12px; background:#f8fbff; }
+    .tf b { color:var(--blue); }
     pre { white-space:pre-wrap; margin:0; color:#334155; font-size:13px; line-height:1.6; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
     .loading { color:var(--blue); font-weight:900; }
     .footer { text-align:center; color:#64748b; margin-top:24px; font-size:13px; }
@@ -177,14 +184,28 @@ def home() -> str:
         <div class="metric-card"><span>Liquidity</span><strong id="liquidity">—</strong></div>
         <div class="metric-card"><span>Volume 24h</span><strong id="volume">—</strong></div>
       </div>
+      <div class="gmgn-strip">
+        <div class="gmgn-card"><span>Pool Age</span><b id="pool-age">—</b></div>
+        <div class="gmgn-card"><span>Vol/Liq</span><b id="vol-liq">—</b></div>
+        <div class="gmgn-card"><span>Smart Money</span><b id="smart-money">—</b></div>
+        <div class="gmgn-card"><span>Security</span><b id="security-state">—</b></div>
+      </div>
       <div class="report-layout">
         <div class="section-card">
           <h3>Token & Market</h3>
           <pre id="market">Click Scan Radar to start.</pre>
         </div>
         <div class="section-card">
-          <h3>Risk Flags</h3>
-          <ul id="flags-list"><li>No scan yet.</li></ul>
+          <h3>GMGN-style Security</h3>
+          <ul id="security-list"><li>No scan yet.</li></ul>
+        </div>
+        <div class="section-card">
+          <h3>Timeframe Tape</h3>
+          <div id="timeframe-grid" class="timeframe-grid"><div class="tf">No scan yet.</div></div>
+        </div>
+        <div class="section-card">
+          <h3>Holder / Wallet Snapshot</h3>
+          <pre id="holder-snapshot">Pending scan.</pre>
         </div>
         <div class="section-card">
           <h3>Narrative</h3>
@@ -213,16 +234,34 @@ function list(el, rows){
   });
 }
 function setTarget(value){ document.getElementById('target').value = value; scan(); }
+function renderTimeframes(timeframes){
+  const node = document.getElementById('timeframe-grid');
+  node.innerHTML = '';
+  ['m5','h1','h6','h24'].forEach(key => {
+    const tf = (timeframes || {})[key] || {};
+    const div = document.createElement('div');
+    div.className = 'tf';
+    div.innerHTML = `<b>${key.toUpperCase()}</b><br>${Number(tf.price_change_pct || 0).toFixed(2)}%<br>${money(tf.volume_usd || 0)}`;
+    node.appendChild(div);
+  });
+}
 function renderAnalysis(data){
   if(data.error){ document.getElementById('market').textContent = data.error; return; }
-  const score = data.score || {}, market = data.market || {}, id = data.identity || {}, pair = data.primary_pair || {};
+  const score = data.score || {}, market = data.market || {}, id = data.identity || {}, pair = data.primary_pair || {}, details = data.details || {};
+  const security = details.security || {}, pool = details.pool || {}, smart = details.smart_money || {}, holder = details.holder_snapshot || {};
   document.getElementById('verdict').textContent = (score.label || 'MONITOR') + ' · ' + (data.verdict || 'Monitor');
   document.getElementById('opportunity').textContent = (score.opportunity_score ?? '—') + '/100';
   document.getElementById('risk').textContent = (score.risk_score ?? '—') + '/100';
   document.getElementById('liquidity').textContent = money(market.liquidity_usd);
   document.getElementById('volume').textContent = money(market.volume_24h);
-  document.getElementById('market').textContent = `${id.name || 'Unknown'} (${id.symbol || 'UNKNOWN'})\nChain: ${id.chain || '-'}\nDEX: ${pair.dex || '-'}\nPrice: ${money(market.price_usd)}\nFDV: ${money(market.fdv)}\nBuys/Sells 24h: ${market.txns_24h_buys || 0} / ${market.txns_24h_sells || 0}\nPair: ${pair.url || '-'}`;
-  list('flags-list', score.flags);
+  document.getElementById('pool-age').textContent = pool.pair_age || '—';
+  document.getElementById('vol-liq').textContent = (pool.volume_liquidity_ratio ?? score.vol_liq ?? '—') + 'x';
+  document.getElementById('smart-money').textContent = smart.signal || 'pending';
+  document.getElementById('security-state').textContent = `${security.liquidity_status || 'unknown'} / ${security.sell_pressure || 'unknown'}`;
+  document.getElementById('market').textContent = `${id.name || 'Unknown'} (${id.symbol || 'UNKNOWN'})\nChain: ${id.chain || '-'}\nDEX: ${pair.dex || '-'}\nPrice: ${money(market.price_usd)}\nFDV: ${money(market.fdv)}\nBuys/Sells 24h: ${market.txns_24h_buys || 0} / ${market.txns_24h_sells || 0}\nPair count: ${data.pair_count || 0}\nPair: ${pair.url || '-'}`;
+  document.getElementById('holder-snapshot').textContent = `Top holders: ${holder.top_holders || 'pending'}\nDev wallet: ${holder.dev_wallet || 'pending'}\nLP/pool authority: ${holder.lp_pool_authority || 'pending'}\nConcentration: ${holder.concentration_risk || 'unresolved'}\nSmart money: ${smart.interpretation || 'pending enrichment'}`;
+  list('security-list', security.flags || score.flags);
+  renderTimeframes(details.timeframes);
   list('narrative-list', data.narrative);
   list('actions-list', data.actions);
 }

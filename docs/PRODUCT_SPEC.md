@@ -24,6 +24,17 @@ Input token/query
   -> report/API/dashboard output
 ```
 
+## GMGN-inspired detail model
+
+Dyanto AlphaRadar mirrors useful GMGN-style concepts without depending on private GMGN APIs:
+
+- security checks: liquidity depth, sell pressure, volume/liquidity churn, liquidity/FDV support
+- pool profile: DEX, pair address, pair age, active pool count, volume/liquidity ratio
+- timeframe tape: 5m, 1h, 6h, 24h price/volume/transaction slices
+- smart money panel: placeholder for smart-degen/KOL/fresh-wallet/sniper enrichment
+- holder snapshot: placeholder for top holders, dev wallet, LP/pool authority, concentration risk
+- research checklist: first 70 buyers, pool authority separation, liquidity lock/burn, smart money accumulation, dust pool filtering
+
 ## Scoring model
 
 Opportunity subscores:

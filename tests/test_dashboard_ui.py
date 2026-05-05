@@ -22,3 +22,6 @@ def test_home_dashboard_has_result_parser_cards():
     assert "verdict-pill" in html
     assert "narrative-list" in html
     assert "actions-list" in html
+    assert "security-list" in html
+    assert "smart-money" in html
+    assert "timeframe-grid" in html

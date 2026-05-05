@@ -12,33 +12,114 @@
     "created_at": 1688106058000
   },
   "market": {
-    "price_usd": 84.8,
-    "liquidity_usd": 30344701.02,
-    "volume_24h": 107666078.47,
-    "volume_1h": 1115111.97,
+    "price_usd": 84.53,
+    "liquidity_usd": 30286369.19,
+    "volume_24h": 107248377.48,
+    "volume_6h": 13750404.79,
+    "volume_1h": 1297321.71,
+    "volume_5m": 87853.16,
     "fdv": 0.0,
-    "txns_24h_buys": 16969,
-    "txns_24h_sells": 15912,
-    "price_change_1h": -0.18,
-    "price_change_24h": 0.08
+    "txns_24h_buys": 16922,
+    "txns_24h_sells": 15901,
+    "txns_1h_buys": 256,
+    "txns_1h_sells": 313,
+    "price_change_5m": -0.04,
+    "price_change_1h": -0.24,
+    "price_change_6h": -0.22,
+    "price_change_24h": -0.32
   },
   "score": {
-    "opportunity_score": 58.3,
+    "opportunity_score": 58.2,
     "risk_score": 25.0,
     "label": "WARM",
-    "vol_liq": 3.55,
+    "vol_liq": 3.54,
     "vol_fdv": 0,
     "buy_ratio": 0.516,
     "subscores": {
       "liquidity": 100,
-      "volume": 29.6,
+      "volume": 29.5,
       "breadth": 100,
-      "buy_pressure": 50.4,
-      "momentum": 34.7,
+      "buy_pressure": 50.2,
+      "momentum": 34.4,
       "valuation_turnover": 0
     },
     "flags": [
       "No critical market-structure flag detected"
+    ]
+  },
+  "details": {
+    "security": {
+      "liquidity_status": "deep",
+      "sell_pressure": "balanced",
+      "churn_status": "ok",
+      "liquidity_fdv_status": "unknown",
+      "honeypot_check": "not_applicable_public_dex_data",
+      "renounced_check": "unresolved_without_chain_specific_contract_scan",
+      "lp_burn_check": "unresolved_without_pool_authority_scan",
+      "flags": [
+        "Multiple pools detected; verify real pool versus dust pools"
+      ]
+    },
+    "pool": {
+      "dex": "orca",
+      "pair_address": "Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+      "pair_age": "1040.1d",
+      "liquidity_usd": 30286369.19,
+      "volume_liquidity_ratio": 3.54,
+      "liquidity_fdv_ratio": 0,
+      "active_pool_count": 30,
+      "url": "https://dexscreener.com/solana/czfq3xzzdmsdgduyrnltrhgc47cxcztlg4crryfu44ze"
+    },
+    "timeframes": {
+      "m5": {
+        "price_change_pct": -0.04,
+        "volume_usd": 87853.16
+      },
+      "h1": {
+        "price_change_pct": -0.24,
+        "volume_usd": 1297321.71,
+        "buys": 256.0,
+        "sells": 313.0
+      },
+      "h6": {
+        "price_change_pct": -0.22,
+        "volume_usd": 13750404.79
+      },
+      "h24": {
+        "price_change_pct": -0.32,
+        "volume_usd": 107248377.48,
+        "buys": 16922.0,
+        "sells": 15901.0
+      }
+    },
+    "smart_money": {
+      "signal": "watch",
+      "smart_degen_count": "pending_wallet_enrichment",
+      "kol_exposure": "pending_social_enrichment",
+      "fresh_wallet_risk": "pending_first_buyer_scan",
+      "sniper_risk": "pending_first_buyer_scan",
+      "interpretation": "GMGN-like wallet tags require holder/trader enrichment; current signal is inferred from public market structure."
+    },
+    "holder_snapshot": {
+      "top_holders": "pending_solana_rpc_or_indexer",
+      "dev_wallet": "pending_creator_scan",
+      "lp_pool_authority": "pending_pool_authority_scan",
+      "concentration_risk": "unresolved"
+    },
+    "discovery": {
+      "labels": [
+        "wp"
+      ],
+      "boosts_active": 0,
+      "social_score": 70,
+      "source_note": "Dexscreener public data with GMGN-inspired analytical layout"
+    },
+    "research_checklist": [
+      "Check first 70 buyers for sniper/bundler/dev/fresh-wallet clustering",
+      "Separate LP/pool authority inventory from real insiders before judging holder risk",
+      "Verify liquidity burn/lock and pool authority where chain data is available",
+      "Track smart money accumulation/distribution if wallet tags are available",
+      "Compare extra pools against primary pool to ignore dust liquidity ghosts"
     ]
   },
   "verdict": "Mixed",
