@@ -155,6 +155,21 @@ Run locally and open:
 http://127.0.0.1:8787
 ```
 
+
+## Network support
+
+Current focus:
+
+- Solana memecoins and DEX pairs
+
+Coming soon:
+
+- Base network support
+- Ethereum network support
+- TON network support
+
+The multi-chain roadmap will keep the same intelligence model: DEX data collection, pool selection, market scoring, GMGN-inspired security panels, wallet-role analysis, and dry-run reporting.
+
 ## Architecture
 
 ```text

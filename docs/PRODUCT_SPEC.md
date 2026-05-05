@@ -35,6 +35,17 @@ Dyanto AlphaRadar mirrors useful GMGN-style concepts without depending on privat
 - holder snapshot: placeholder for top holders, dev wallet, LP/pool authority, concentration risk
 - research checklist: first 70 buyers, pool authority separation, liquidity lock/burn, smart money accumulation, dust pool filtering
 
+
+## Network roadmap
+
+Current production focus is Solana-first. Coming soon networks:
+
+- Base
+- Ethereum
+- TON
+
+Each network should reuse the same high-level pipeline while adding chain-specific adapters for DEX data, pool authority checks, holder concentration, wallet-role classification, and security signals.
+
 ## Scoring model
 
 Opportunity subscores:
