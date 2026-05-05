@@ -39,30 +39,30 @@
   <text x="82" y="221" class="box-title">Token / Query</text>
   <text x="82" y="245" class="box-sub">CA, pair, symbol, keyword</text>
 
-  <rect x="320" y="135" width="260" height="155" rx="28" fill="#fff" stroke="#cfe0ff" filter="url(#shadow)"/>
-  <text x="350" y="172" class="tag">DATA ADAPTERS</text>
-  <text x="350" y="202" class="box-title">Dexscreener First</text>
-  <text x="350" y="226" class="box-sub">token/search endpoints</text>
-  <text x="350" y="255" class="box-title">GeckoTerminal Ready</text>
-  <text x="350" y="279" class="box-sub">pool/price enrichment scaffold</text>
+  <rect x="305" y="135" width="300" height="155" rx="28" fill="#fff" stroke="#cfe0ff" filter="url(#shadow)"/>
+  <text x="335" y="172" class="tag">DATA ADAPTERS</text>
+  <text x="335" y="202" class="box-title">Dexscreener First</text>
+  <text x="335" y="226" class="box-sub">token/search endpoints</text>
+  <text x="335" y="255" class="box-title">GeckoTerminal</text>
+  <text x="335" y="279" class="box-sub">pool/price enrichment</text>
 
-  <rect x="630" y="135" width="270" height="155" rx="28" fill="#fff" stroke="#cfe0ff" filter="url(#shadow)"/>
-  <text x="660" y="172" class="tag">NORMALIZE</text>
-  <text x="660" y="202" class="box-title">Primary Pair Picker</text>
-  <text x="660" y="226" class="box-sub">chain, DEX, liquidity, volume</text>
-  <text x="660" y="255" class="box-title">Market Snapshot</text>
-  <text x="660" y="279" class="box-sub">m5 / h1 / h6 / h24 metrics</text>
+  <rect x="640" y="135" width="280" height="155" rx="28" fill="#fff" stroke="#cfe0ff" filter="url(#shadow)"/>
+  <text x="670" y="172" class="tag">NORMALIZE</text>
+  <text x="670" y="202" class="box-title">Primary Pair Picker</text>
+  <text x="670" y="226" class="box-sub">chain, DEX, liquidity, volume</text>
+  <text x="670" y="255" class="box-title">Market Snapshot</text>
+  <text x="670" y="279" class="box-sub">m5 / h1 / h6 / h24 metrics</text>
 
-  <rect x="950" y="135" width="205" height="155" rx="28" fill="url(#blue)" filter="url(#shadow)"/>
+  <rect x="955" y="135" width="220" height="155" rx="28" fill="url(#blue)" filter="url(#shadow)"/>
   <text x="980" y="172" style="font:800 10px Inter,Arial;fill:#fff;letter-spacing:1px">SCORING</text>
-  <text x="980" y="202" style="font:800 19px Inter,Arial;fill:#fff">Opportunity</text>
-  <text x="980" y="226" style="font:600 12px Inter,Arial;fill:#dcecff">liquidity, volume, breadth</text>
-  <text x="980" y="255" style="font:800 19px Inter,Arial;fill:#fff">Risk</text>
-  <text x="980" y="279" style="font:600 12px Inter,Arial;fill:#dcecff">churn, sell pressure, FDV</text>
+  <text x="980" y="202" style="font:800 18px Inter,Arial;fill:#fff">Opportunity</text>
+  <text x="980" y="226" style="font:600 11px Inter,Arial;fill:#dcecff">liquidity, volume, breadth</text>
+  <text x="980" y="255" style="font:800 18px Inter,Arial;fill:#fff">Risk</text>
+  <text x="980" y="279" style="font:600 11px Inter,Arial;fill:#dcecff">churn, sell pressure, FDV</text>
 
-  <path d="M280 211 H320" class="arrow"/>
-  <path d="M580 211 H630" class="arrow"/>
-  <path d="M900 211 H950" class="arrow"/>
+  <path d="M280 211 H305" class="arrow"/>
+  <path d="M605 211 H640" class="arrow"/>
+  <path d="M920 211 H955" class="arrow"/>
 
   <rect x="90" y="380" width="295" height="185" rx="30" fill="#fff" stroke="#cfe0ff" filter="url(#shadow)"/>
   <text x="123" y="418" class="tag">GMGN-STYLE DETAILS</text>
